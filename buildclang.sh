@@ -50,7 +50,7 @@ get_toolchain_info() {
     if command -v clang >/dev/null 2>&1; then
         if clang --version | grep -qi "zyc\|ZyCromerZ"; then
             CLANG_VER=$(clang --version | head -n1 | sed 's/.*version //')
-            TC_INFO="Proton Clang ${CLANG_VER}"
+            TC_INFO="ZyC Clang ${CLANG_VER}"
         else
             CLANG_VER=$(clang --version | head -n1)
             TC_INFO="Clang (${CLANG_VER})"
