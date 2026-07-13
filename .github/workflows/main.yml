@@ -43,12 +43,9 @@ jobs:
     
       - name: Setup KernelSU (Hookless)
         run: |
-          curl -LSs "https://raw.githubusercontent.com/Mr-Morat/KernelSU-Next/stable/kernel/setup.sh" | bash -s syscall
-      - name: Patch "Manipulated" → "RahmatSobrian"
-        run: |
-          sed -i 's/type = "Manipulated"/type = "RahmatSobrian"/g' KernelSU-Next/kernel/supercall/dispatch.c
-          grep -n "RahmatSobrian" KernelSU-Next/kernel/supercall/dispatch.c && echo "✅ Patch berhasil!" || (echo "❌ Gagal!" && exit 1)
-          
+          # curl -LSs "https://raw.githubusercontent.com/Mr-Morat/KernelSU-Next/stable/kernel/setup.sh" | bash -s syscall
+          curl -LSs "https://raw.githubusercontent.com/backslashxx/KernelSU/master/kernel/setup.sh" | bash -
+
       - name: Start Build with log)
         env:
           KBUILD_BUILD_USER: "RahmatSobrian"
